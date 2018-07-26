@@ -1,0 +1,348 @@
+@import "variables"
+@import "normalize"
+
+
+.wrapper
+  display: flex
+  align-items: center
+  min-height: 100vh
+  background-color: #000000
+  //background: linear-gradient(90deg, #232526 0%, #414345 100%)
+  background-size: cover
+  position: relative
+  font-family: $basic
+.player__controls > *
+  flex: 1
+
+.player
+  position: relative
+  font-size: 0
+  overflow: hidden
+  z-index: 2
+  height: 100vh
+  display: flex
+  flex-direction: column
+  justify-content: center
+  width: calc(100% - 400px)
+  transition: .3s ease-in-out
+  &:hover
+    .player__header
+      transform: none
+  &:fullscreen, &:-webkit-full-screen
+    border-width: 0
+    max-width: none
+    width: 100%
+  &__header
+    position: absolute
+    width: 100%
+    top: 0
+    left: 0
+    height: 100px
+    z-index: 2
+    background: linear-gradient(180deg,rgba(0,0,0,.9) 0,transparent)
+    color: #ffffff
+    font-size: 16px
+    line-height: 24px
+    padding: 2%
+    display: flex
+    justify-content: space-between
+    align-items: center
+    transition: .3s ease-in-out
+    transform: translateY(-110%)
+
+  &__name
+    font-size: 22px
+    font-family: $bold
+    line-height: 28px
+  &__subname
+    font-size: 16px
+    color: rgba(255, 255, 255, 0.7)
+  &__btn
+    width: 25px
+    height: 25px
+    background: transparent  url("../img/menuVideo.svg") center center no-repeat
+    background-size: contain
+    cursor: pointer
+    transition: .3s ease-in-out
+    &:hover
+      opacity: .8
+      transform: scale(1.03)
+  &.full
+    width: 100vw
+    min-width: 100%
+  &__button.toggle
+    border: 0
+    cursor: pointer
+    width: 25px
+    height: 25px
+    display: block
+    min-width: 25px
+    &.paused
+      background: transparent url("../img/play.svg") center center no-repeat
+      background-size: contain
+    &.playing
+      background: transparent url("../img/pause.svg") center center no-repeat
+      background-size: contain
+  &__button.goToBtn
+    width: 30px
+    height: 30px
+    transition: .3s ease-in-out
+    transform: translateY(-3px)
+    svg
+      width: 100%
+      height: 100%
+      *
+        transition: .1s ease-in-out
+
+  &__controls
+    display: flex
+    position: absolute
+    bottom: 0
+    width: 100%
+    transition: all 0.3s
+    flex-wrap: wrap
+    align-items: center
+    background: rgba(0, 0, 0, 0.3)
+    padding-top: 10px
+
+
+.progress
+  flex: 10
+  position: relative
+  display: flex
+  flex-basis: 100%
+  height: 5px
+  transition: height 0.3s
+  background: rgba(255, 255, 255, 0.5)
+  margin-bottom: 10px
+//cursor: ew-resize
+
+.progress__filled
+  width: 50%
+  background: #FF7B39
+  flex: 0
+  flex-basis: 0%
+/* This css is only applied when fullscreen is active.
+
+.player__video
+  width: 100%
+
+.player__button
+  background: none
+  border: 0
+  line-height: 1
+  color: white
+  text-align: center
+  outline: 0
+  padding: 0
+  cursor: pointer
+  max-width: 50px
+  &:focus
+    border-color: #b8db92
+
+.player__slider
+  width: 10px
+  height: 30px
+
+
+
+.player:hover
+  .progress
+    height: 15px
+
+
+//стилизация списка
+
+.controlsTime
+  color: #fff
+  z-index: 1
+  background-color: #363636
+  height: 100vh
+  padding: 1%
+  width: 400px
+  transition: transform .3s ease-in-out
+  &.unactive
+    //width: 0
+    transform: translateX(100%)
+
+
+.time__control
+  font-size: 16px
+  line-height: 22px
+  margin-bottom: 7px
+  cursor: pointer
+  transition: .3s ease-in-out
+  &.active
+    color: red
+    font-size: 18px
+    line-height: 24px
+
+.fullscreen
+  display: block
+  width: 16px
+  height: 16px
+  background: transparent url("../img/fullscreen.svg") no-repeat center
+  background-size: contain
+  transition: .3s ease-in-out
+  cursor: pointer
+  &:hover
+    transform: scale(1.03)
+
+
+
+.progress__tooltip
+  position: absolute
+  background-color: rgba(255, 255, 255, 0.37)
+  width: 35px
+  height: 35px
+  top: 0
+  transform: translateY(-90%) translateX(-50%)
+  left: 0
+  opacity: 0
+  transition: opacity .3s ease-in-out
+  color: #000000
+  font-size: 12px
+  display: flex
+  justify-content: center
+  align-items: center
+  border-radius: 5px
+  border: 1px solid red
+
+.clearRek
+  position: absolute
+  color: #ffffff
+  bottom: 40px
+  right: 30px
+  padding: 10px
+  border: 1px solid yellow
+  font-size: 16px
+  cursor: pointer
+  display: none
+//.volume-wrap
+//  width: 30px
+//  max-width: 30px
+//  position: relative
+
+
+/*  slider
+
+.range-slider
+  display: inline-block
+  width: 30px
+  position: absolute
+  bottom: 50px
+  text-align: center
+  height: 170px
+  opacity: 0
+  transition: .3s ease-in-out
+  transform: translateY(-20px)
+  cursor: pointer
+  &__wrap
+    width: 30px
+    height: 30px
+    margin-left: 20px
+    max-width: 30px
+    margin-right: 57vw
+    &:hover
+      .range-slider
+        opacity: 1
+        transform: none
+  &__icon
+    width: 30px
+    height: 30px
+    background: transparent url(../img/volume.svg) center center no-repeat
+    background-size: contain
+    cursor: pointer
+    &.mute
+      background: transparent url(../img/mute.svg) center center no-repeat
+      background-size: contain
+
+
+.range-slider__thumb
+  position: absolute
+  left: 50%
+  transform: translateX(-50%)
+  width: 20px
+  height: 20px
+  background: #FF7B39
+  pointer-events: none
+  border-radius: 50%
+  &.unactive
+    bottom: 0 !important
+
+.range-slider__bar
+  left: 16px
+  bottom: -200px
+  position: absolute
+  pointer-events: none
+  width: 8px
+  border-radius: 10px
+
+.range-slider input[type=range][orient=vertical]
+  position: relative
+  margin: 0
+  height: 100%
+  width: 100%
+  display: inline-block
+  writing-mode: bt-lr
+  -webkit-appearance: slider-vertical
+  &::-webkit-slider-runnable-track, &::-webkit-slider-thumb
+    -webkit-appearance: none
+  &::-webkit-slider-runnable-track, &::-moz-range-track
+    border: none
+    background: #fff
+    width: 8px
+    border-color: #fff
+  &::-ms-track
+    border: none
+    background: #fff
+    width: 8px
+    border-color: #fff
+    color: transparent
+    height: 100%
+  &::-ms-fill-lower, &::-ms-fill-upper, &::-ms-tooltip
+    display: none
+  &::-webkit-slider-thumb, &::-moz-range-thumb, &::-ms-thumb
+    width: 30px
+    height: 30px
+    opacity: 0
+
+.speed__list
+  font-size: 14px
+  color: #fff
+  position: absolute
+  bottom: 40px
+  left: 50%
+  transform: translateX(-50%)
+  display: none
+  &.active
+    display: block
+  &-wrap
+    position: relative
+    width: 50px
+    max-width: 50px
+  &-title
+    font-size: 14px
+    padding: 5px
+    color: #fff
+    border: 1px solid #fff
+    width: 50px
+    height: 30px
+    display: flex
+    justify-content: center
+    align-items: center
+    cursor: pointer
+    transform: translateY(-3px )
+  &-item
+    padding: 5px
+    border: 1px solid #fff
+    width: 50px
+    transition: .3s ease-in-out
+    cursor: pointer
+    text-align: center
+    background-color: rgba(0, 0, 0, 0.45)
+    &:hover
+      background-color: rgba(0, 0, 0, 0.6)
+      color: #FF7B39
+
+

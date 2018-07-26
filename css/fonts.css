@@ -1,0 +1,28 @@
+@font-face {
+	font-family: 'Geometria';
+    src: url('../fonts/Geometria.eot');
+    src: url('../fonts/Geometria.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Geometria-Bold';
+    src: url('../fonts/Geometria-Bold.eot');
+    src: url('../fonts/Geometria-Bold.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Geometria-Heavy';
+    src: url('../fonts/Geometria-Heavy.eot');
+    src: url('../fonts/Geometria-Heavy.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'GeometriaExtraBold';
+    src: url('../fonts/GeometriaExtraBold.eot');
+    src: url('../fonts/GeometriaExtraBold.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
